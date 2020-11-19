@@ -1,0 +1,29 @@
+{
+	"name": "@underlay/apg-expression-parser",
+	"version": "0.0.1",
+	"description": "Parser for the APG Expression DSL",
+	"main": "index.js",
+	"scripts": {
+		"test": "npx jest",
+		"build": "nearleyc grammar.ne -o grammar.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/underlay/apg-expression-parser.git"
+	},
+	"author": "Joel Gustafson",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/underlay/apg-expression-parser/issues"
+	},
+	"homepage": "https://github.com/underlay/apg-expression-parser#readme",
+	"dependencies": {
+		"@underlay/apg": "^0.6.5",
+		"nearley": "^2.19.7"
+	},
+	"devDependencies": {
+		"@types/jest": "^26.0.15",
+		"jest": "^26.6.3",
+		"typescript": "^4.1.2"
+	}
+}
