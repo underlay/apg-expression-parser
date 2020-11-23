@@ -1,2 +1,3 @@
 # apg-expression-parser
-Parser for the APG Expression DSL
+
+> Nearley parser for the APG Expression DSL
