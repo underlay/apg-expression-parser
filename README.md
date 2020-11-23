@@ -56,8 +56,8 @@ The nine kinds of expressions are:
 5. Pointer dereference. If the free variable is of a pointer type to a label with key `ex:foo`, you can de-reference it with `* ex:foo`. The next expression in the pipeline will have the value of the label as its free variable.
 6. Component projection. If the free variable is a product type that has a component named `ex:bar`, you can "get" the value of that component with `. ex:bar`.
 7. Option injection. You can _produce_ a variant (ie a value of a coproduct/sum/union type) of tag `ex:baz` with `\ ... % ex:baz`, where `...` is another pipeline of expressions.
-8. Tuple construction. You can create a product of three components with `{ ex:foo -> ... ; ex:bar -> ... ; ex:baz -> ... }`, where each `...` is another pipeline of expressions.
-9. Case analysis. You can "handle" each option of a coproduct type with `[ ex:foo <- ... ; ex:bar <- ... ; ex:baz <- ... ]`, where each `...` is another pipeline of expressions. Note that case analysis uses square brackets instead of braces, and reverses the direction of the associating arrows.
+8. Tuple construction. You can create a product of e.g. three components with `{ ex:foo -> ... ; ex:bar -> ... ; ex:baz -> ... }`, where each `...` is another pipeline of expressions. The last `;` is optional.
+9. Case analysis. You can "handle" each option of a coproduct type with `[ ex:foo <- ... ; ex:bar <- ... ; ex:baz <- ... ]`, where each `...` is another pipeline of expressions. Note that case analysis uses square brackets instead of braces, and reverses the direction of the associating arrows. The branches of each case must return values of the same type, or at least "unifiable types", which will be explained later. Again, the last `;` is optional.
 
 Suppose we wanted to transform a product value that has a string `ex:name` component into a product value that has a) an optional string component `ex:name` and b) and optional number component `ex:age`. By "optional" here we just mean "a coproduct unit and something else".
 
