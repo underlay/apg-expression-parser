@@ -88,7 +88,7 @@ expr foo = {
 }
 ```
 
-Now let's say we wanted to go back again - transform the a value of the output type into a value of our original input type.
+Now let's say we wanted to go back again and transform a value of the output type into a value of our original input type:
 
 ```
 expr oof = { ex1:name -> . ex2:name [ ul:some <- ; ul:none <- "" :string ] }
