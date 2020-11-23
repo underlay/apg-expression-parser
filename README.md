@@ -43,7 +43,7 @@ The easiest way to think about expressions is to think of them as morphisms in a
 
 The second easiest way to think about expressions is to think of them as a "value-grammar" (ie a way of writing out any primitive or complex value) that is augmented with a "lambda-grammar" for doing component projection, case analysis, and pointer de-referencing on a single free variable.
 
-The third easiest way to think about expressions is to think of them as pure functions that take one value a certain type and return another value of a different type. The kinds of functions that can be written as expressions are just the ones that involve structural refactoring (and introducing constants).
+The third easiest way to think about expressions is to think of them as pure functions that take one value of a certain type and return another value of a different type. The kinds of functions that can be written as expressions are just the ones that involve structural refactoring (and introducing constants).
 
 The input and output types of expressions are never explicitly written out.
 
