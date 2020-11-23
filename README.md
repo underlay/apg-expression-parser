@@ -113,7 +113,7 @@ by doing the case analysis first, outside, and then constructing the tuple indep
 
 ### Maps
 
-Simply delcaring expressions doesn't actually do anything - it's just a convenience feature that enable re-using them as framents in other expressions. The real output of the DSL is a set of map relations, which are declared with a special kind of ternary statement.
+Simply delcaring expressions doesn't actually do anything - it's just a convenience feature that enable re-using them as fragments in other expressions. The real output of the DSL is a set of map relations, which are declared with a special kind of ternary statement.
 
 A map has three parts: a URI `[key]`, a `[path]`, and a `[value]`. Its syntax looks like this: `map [key] <= [path] => [value]`.
 
