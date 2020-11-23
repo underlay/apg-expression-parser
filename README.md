@@ -59,12 +59,12 @@ The nine kinds of expressions are:
 8. Tuple construction. You can create a product of e.g. three components with `{ ex:foo -> ... ; ex:bar -> ... ; ex:baz -> ... }`, where each `...` is another pipeline of expressions. The last `;` is optional.
 9. Case analysis. You can "handle" each option of a coproduct type with `[ ex:foo <- ... ; ex:bar <- ... ; ex:baz <- ... ]`, where each `...` is another pipeline of expressions. Note that case analysis uses square brackets instead of braces, and reverses the direction of the associating arrows. The branches of each case must return values of the same type, or at least "unifiable types", which will be explained later. Again, the last `;` is optional.
 
-Suppose we wanted to transform a product value that has a string `ex:name` component into a product value that has a) an optional string component `ex:name` and b) and optional number component `ex:age`. By "optional" here we just mean "a coproduct unit and something else".
+Suppose we wanted to transform a product value that has a string `ex1:name` component into a product value that has a) an optional string component `ex2:name` and b) and optional number component `ex2:age`. By "optional" here we just mean "the coproduct of a unit and something else".
 
 We know what we want to do: inject the name into the "not null" branch of the name coproduct, and inject null into the "null" branch of the age coproduct. Let's say that the "null" branch of is tagged `ul:none` and that the "not null" branch is tagged `ul:some`. We would write this expression as:
 
 ```
-expr foo = { ex:name -> \ . ex:name % ul:some ; ex:age -> \ ! % ul:none }
+expr foo = { ex2:name -> \ . ex1:name % ul:some ; ex2:age -> \ ! % ul:none }
 ```
 
 Damn! What's going on here?
@@ -80,10 +80,10 @@ expr foo = {
   # The one expression is an injection expression,
   # which is of the form \ ... % ul:some, where `...` is another series of expressions.
   # The one expression in that inner series is a projection on the component named ex:name.
-  ex:name -> \ . ex:name % ul:some ;
+  ex2:name -> \ . ex1:name % ul:some ;
 
   # Similar story over here, except that the "inner" expression is just a unit expression (`!`),
   # which is effectively a "null constant"
-  ex:age -> \ ! % ul:none ;
+  ex2:age -> \ ! % ul:none ;
 }
 ```
