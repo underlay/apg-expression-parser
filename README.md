@@ -87,3 +87,11 @@ expr foo = {
   ex2:age -> \ ! % ul:none ;
 }
 ```
+
+Now let's say we wanted to go back again - transform the a value of the output type into a value of our original input type.
+
+```
+expr oof = { ex1:name -> . ex2:name [ ul:some <- ; ul:none <- "" :string ] }
+```
+
+This time we have to do some case analysis on the name component, since it could be either a string or null. In the `ul:some` branch, the bound variable will be a string literal, so we have an _empty expression series_ (ie the identity expression). In the `ul:none` branch, the bound variable will be a unit value, but we still need to return a string so that the types mach up, so we just return a constant `"" :string`. The XSD namespace is the canonical default empty namespace: `:string` is always equivalent to `<http://www.w3.org/2001/XMLSchema#string>`.
