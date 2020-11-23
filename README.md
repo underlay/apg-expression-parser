@@ -55,7 +55,7 @@ The nine kinds of expressions are:
 4. Literals. You can introduce a constant literal value using a double-quoted string followed by a URI datatype: `"Joel says \"hi!\"" xsd:string`. JSON string escaping rules apply.
 5. Pointer dereference. If the free variable is of a pointer type to a label with key `ex:foo`, you can de-reference it with `* ex:foo`. The next expression in the pipeline will have the value of the label as its free variable.
 6. Component projection. If the free variable is a product type that has a component named `ex:bar`, you can "get" the value of that component with `. ex:bar`.
-7. Option injection. You can _product_ a variant (ie a value of a coproduct/sum/union type) of tag `ex:baz` with `\ ... % ex:baz`, where `...` is another pipeline of expressions.
+7. Option injection. You can _produce_ a variant (ie a value of a coproduct/sum/union type) of tag `ex:baz` with `\ ... % ex:baz`, where `...` is another pipeline of expressions.
 8. Tuple construction. You can create a product of three components with `{ ex:foo -> ... ; ex:bar -> ... ; ex:baz -> ... }`, where each `...` is another pipeline of expressions.
 9. Case analysis. You can "handle" each option of a coproduct type with `[ ex:foo <- ... ; ex:bar <- ... ; ex:baz <- ... ]`, where each `...` is another pipeline of expressions. Note that case analysis uses square brackets instead of braces, and reverses the direction of the associating arrows.
 
