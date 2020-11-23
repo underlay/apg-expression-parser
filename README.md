@@ -16,7 +16,7 @@ Whitespace is not significant. Most grammar terms need to be separated by some w
 
 ### URIs
 
-Expressions written in the DSL typically need to use lots of URIs. There are two ways of writing a URI: you can write out the full, absolute URI by wrapping it in chevrons, like `<http://example.com/a/b#c>`, or you can use prefix definitions and a prefix-compacted form. The following three examples are all equivalent:
+Expressions written in the DSL typically need to use lots of URIs. There are two ways of writing a URI: you can write out the full, absolute URI by wrapping it in angle brackets, like `<http://example.com/a/b#c>`, or you can use prefix definitions and a prefix-compacted form. The following three examples are all equivalent:
 
 ```
 expr foo = <http://example.com/a/b#c>
