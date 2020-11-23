@@ -12,6 +12,8 @@ The DSL has three kinds of top-level statements:
 
 Comments start with `#` and continue until the end of the line.
 
+Whitespace is not significant. Most grammar terms need to be separated by some whitespace, but newlines and indentation can be introduced anywhere.
+
 ### URIs
 
 Expressions written in the DSL typically need to use lots of URIs. There are two ways of writing a URI: you can write out the full, absolute URI by wrapping it in chevrons, like `<http://example.com/a/b#c>`, or you can use prefix definitions and a prefix-compacted form. The following three examples are all equivalent:
@@ -49,7 +51,7 @@ There are ten kinds of expressions. Three of them are recursive, meaning that th
 
 Expressions always come in a series (ie pipeline), and any expression can be "piped" into any other expression. Although this is valid syntax, is not always semantically valid.
 
-The expression syntax has been carefully designed to be unambiguous with respect to grouping: parentheses are allowed for readability, but never affect the semantics since all expressions are associative.
+The expression syntax has been carefully designed to be unambiguous with respect to grouping: parentheses are allowed for readability, but never affect the semantics since all expressions are associative. Newlines and indentation are the preferred method of organizing complex expressions; not parentheses.
 
 The ten kinds of expressions are:
 
