@@ -74,18 +74,18 @@ expr wow = (
   "fjkdsla" :string
 )
 
-expr djs = / * foooo:fjkdls * foooo:uio % foo:bar . foo:bar * ul:jkl <schema:fds>
+expr djs = \\ * foooo:fjkdls * foooo:uio % foo:bar . foo:bar * ul:jkl <schema:fds>
 
 map foo:klfsa
-  <= ul:fjksl/fjsla . ul:jfdks \\ ul:io
+  <= ul:fjksl/fjsla . ul:jfdks / ul:io
   => djs
 
 map foo:klfsa2
-  <= ul:fjksl/fjsla . ul:jfdks \\ ul:io
+  <= ul:fjksl/fjsla . ul:jfdks / ul:io
   => afdsa42AAFa !
 
  map foo:klfsa3
-  <= ul:fjksl/fjsla . ul:jfdks \\ ul:io
+  <= ul:fjksl/fjsla . ul:jfdks / ul:io
   => wow aaa
 `
 	console.log("yay", parse(source))

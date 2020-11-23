@@ -82,14 +82,14 @@ expr ->
   | %string  __ uri   {% ([{ value }, _, datatype]) => ({ type: "constant", value, datatype }) %}
   | %pointer __ uri   {% ([{}, _, key]) => ({ type: "dereference", key }) %}
   | %dot     __ uri   {% ([{}, _, key]) => ({ type: "projection", key }) %}
-  | %slash __ expression __ %modulo __ uri
+  | %bslash __ expression __ %modulo __ uri
     {% (r) => ({ type: "injection", key: r[6], value: r[2] }) %}
   | %lbrace   _ slot _ ( %delim _ slot _ {% (r) => r[2]%}):* trailing %rbrace
     {% (r) => ({ type: "tuple", slots: [r[2], ...r[4]] }) %}
   | %lbracket _ case _ ( %delim _ case _ {% (r) => r[2]%}):* trailing %rbracket
     {% (r) => ({ type: "match", cases: [r[2], ...r[4]] }) %}
 
-link -> (%dot {% (r) => "component" %} | %bslash {% (r) => "option" %}) __ uri
+link -> (%dot {% (r) => "component" %} | %slash {% (r) => "option" %}) __ uri
   {% ([type, _, key]) => ({ type, key }) %}
 
 path -> uri (__ link {% ([_, t]) => t %}):* {% ([source, target]) => ({ source, target }) %}
