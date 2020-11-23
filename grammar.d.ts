@@ -6,6 +6,7 @@ export default grammar
 export type URI = string | [string, string]
 export type Expression =
 	| { type: "variable"; value: string }
+	| { type: "identity" }
 	| { type: "terminal" }
 	| { type: "identifier"; value: URI }
 	| { type: "constant"; value: string; datatype: URI }

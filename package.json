@@ -1,6 +1,6 @@
 {
 	"name": "@underlay/apg-expression-parser",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Parser for the APG Expression DSL",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",

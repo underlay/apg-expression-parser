@@ -18,6 +18,7 @@ const lexer = moo.compile({
   ldarrow:  '<=',
   rdarrow:  '=>',
   unit:     '!',
+  identity: '@',
   modulo:   '%',
   slash:    '/',
   bslash:   '\\',
@@ -77,6 +78,7 @@ exprs -> expr (__ expr {% (e) => e[1] %}):*
 
 expr ->
     %name             {% ([{ value }]) => ({ type: "variable", value }) %}
+  | %identity         {% () => ({ type: "identity" }) %}
   | %unit             {% () => ({ type: "terminal" }) %}
   | uri               {% ([value]) => ({ type: "identifier", value }) %}
   | %string  __ uri   {% ([{ value }, _, datatype]) => ({ type: "constant", value, datatype }) %}

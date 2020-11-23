@@ -41,14 +41,15 @@ The third easiest way to think about expressions is to think of them as pure fun
 
 The input and output types of expressions are never explicitly written out.
 
-There are _nine_ kinds of expressions. Three out of those nine are recursive, meaning that they contain a list (or several lists) of expressions themselves.
+There are _ten_ kinds of expressions. Three out of those nine are recursive, meaning that they contain a list (or several lists) of expressions themselves.
 
 At the syntax level, expressions are composable in the sense that they always come in a series (ie pipeline), and any expression can be "piped" into any other expression. Although this is valid syntax, is not always semantically valid.
 
 The expression syntax has been carefully designed to be unambiguous with respect to grouping: parentheses are allowed for readability, but never affect the semantics since all expressions are associative.
 
-The nine kinds of expressions are:
+The ten kinds of expressions are:
 
+0. Identity. You can just return the input (ie the value of the free variable) with the symbol `@`.
 1. Declaration reference. You can reference an expression that has been previously declared with `expr foo = ...` by its name `foo`.
 2. Unit / null / terminal. The symbol for the unit value (ie a fresh distinguished null) is `!`.
 3. URIs. You can introduce a constant URI identifier using either an expanded form `<http://example.com/a/b#c>` or a prefix-compaced form `ex:a/b/#c`.
@@ -91,7 +92,7 @@ expr foo = {
 Now let's say we wanted to go back again and transform a value of the output type into a value of our original input type:
 
 ```
-expr oof = { ex1:name -> . ex2:name [ ul:some <- ; ul:none <- "" :string ] }
+expr oof = { ex1:name -> . ex2:name [ ul:some <- @ ; ul:none <- "" :string ] }
 ```
 
-This time we have to do some case analysis on the name component, since it could be either a string or null. In the `ul:some` branch, the bound variable will be a string literal, so we have an _empty expression series_ (ie the identity expression). In the `ul:none` branch, the bound variable will be a unit value, but we still need to return a string so that the types mach up, so we just return a constant `"" :string`. The XSD namespace is the canonical default empty namespace: `:string` is always equivalent to `<http://www.w3.org/2001/XMLSchema#string>`.
+This time we have to do some case analysis on the name component, since it could be either a string or null. In the `ul:some` branch, the bound variable will be a string literal, so we have an identity expression. In the `ul:none` branch, the bound variable will be a unit value, but we still need to return a string so that the types mach up, so we just return a constant `"" :string`. The XSD namespace is the canonical default empty namespace: `:string` is always equivalent to `<http://www.w3.org/2001/XMLSchema#string>`.

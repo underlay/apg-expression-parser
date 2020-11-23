@@ -84,6 +84,9 @@ function parseExpression(
 			throw new Error(`Expression ${expr.value} is not defined`)
 		}
 		return value
+	} else if (expr.type === "identity") {
+		Object.freeze(expr)
+		return [expr]
 	} else if (expr.type === "terminal") {
 		Object.freeze(expr)
 		return [expr]
