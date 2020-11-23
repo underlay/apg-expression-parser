@@ -58,7 +58,7 @@ The ten kinds of expressions are:
 0. Identity. You can just return the input (ie the value of the free variable) with the symbol `@`.
 1. Declaration reference. You can reference an expression that has been previously declared with `expr foo = ...` by its name `foo`.
 2. Unit / null / terminal. The symbol for the unit value (ie a fresh distinguished null) is `!`.
-3. URIs. You can introduce a constant URI identifier using either an expanded form `<http://example.com/a/b#c>` or a prefix-compaced form `ex:a/b/#c`.
+3. URIs. You can introduce a constant URI identifier using either an expanded form `<http://example.com/a/b#c>` or a prefix-compaced form `ex:a/b#c`.
 4. Literals. You can introduce a constant literal value using a double-quoted string followed by a URI datatype: `"Joel says \"hi!\"" :string`. JSON string escaping rules apply.
 5. Pointer dereference. If the free variable is of a pointer type to a label with key `ex:foo`, you can de-reference it with `* ex:foo`. The next expression in the pipeline will have the value of the label as its free variable.
 6. Component projection. If the free variable is a product type that has a component named `ex:bar`, you can "get" the value of that component with `. ex:bar`.
